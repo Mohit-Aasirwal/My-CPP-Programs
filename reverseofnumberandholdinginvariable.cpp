@@ -2,4 +2,14 @@
 #include <iostream>
 #include <conio.h>
 using namespace std;
-bookmarks:
+int main()
+{
+    int a,r;
+    cout<<"enter a number to reverse it:";
+    cin>>a;
+    while(a>0)
+    {
+        
+    }
+
+}
