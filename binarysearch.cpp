@@ -1,3 +1,5 @@
+//buggy
+
 #include <iostream>
 using namespace std;
 int binarysearch(int x[], int n, int search)
