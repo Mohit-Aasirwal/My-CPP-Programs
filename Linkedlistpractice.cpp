@@ -6,21 +6,23 @@ class Node
 public:
     int data;
     Node *next;
-    //constructor
+    // constructor
     Node(int d)
     {
         this->data = d;
         this->next = NULL;
     }
-    //destructor
-    ~Node(){
-        int value =this->data;
-        //memory free
-        if(this->next !=NULL){
+    // destructor
+    ~Node()
+    {
+        int value = this->data;
+        // memory free
+        if (this->next != NULL)
+        {
             delete next;
-            this->next=NULL;
+            this->next = NULL;
         }
-        cout<<"memory is freed";
+        cout << "memory is freed";
     }
 };
 void insertAtHead(Node *&head, int d)
@@ -29,10 +31,11 @@ void insertAtHead(Node *&head, int d)
     temp->next = head;
     head = temp;
 }
-void insertAtPosition(Node *&head,Node*&tail, int position, int d)
+void insertAtPosition(Node *&head, Node *&tail, int position, int d)
 {
-    if(position==1){
-        insertAtHead(head,d);
+    if (position == 1)
+    {
+        insertAtHead(head, d);
         return;
     }
     Node *temp = head;
@@ -56,24 +59,28 @@ void insertAtTail(Node *&tail, int d)
     tail->next = temp;
     tail = temp;
 }
-void deleteNode(int position, Node*&head){
-    if(position==1){
-        Node* temp =head;
-        head=head->next;
-        temp->next=NULL;
+void deleteNode(int position, Node *&head)
+{
+    if (position == 1)
+    {
+        Node *temp = head;
+        head = head->next;
+        temp->next = NULL;
         delete temp;
     }
-    else{
-        Node* prev = NULL;
-        Node* curr = head;
-        int cnt =1;
-        while(cnt<=position){
-            prev=curr;
-            curr=curr->next;
+    else
+    {
+        Node *prev = NULL;
+        Node *curr = head;
+        int cnt = 1;
+        while (cnt <= position)
+        {
+            prev = curr;
+            curr = curr->next;
             cnt++;
         }
-        prev->next=curr->next;
-        curr->next=NULL;
+        prev->next = curr->next;
+        curr->next = NULL;
         delete curr;
     }
 }
@@ -85,7 +92,6 @@ void print(Node *&head)
         cout << temp->data << " ";
         temp = temp->next;
     }
-   
 }
 int main()
 {
@@ -96,9 +102,9 @@ int main()
     // cout << node1->next;
     insertAtHead(head, 10);
     insertAtTail(tail, 12);
-    insertAtPosition(head,tail, 1, 15);
-    insertAtPosition(head,tail, 4, 16);
+    insertAtPosition(head, tail, 1, 15);
+    insertAtPosition(head, tail, 4, 16);
     print(head);
-    deleteNode(3,head);
+    deleteNode(3, head);
     print(head);
 }
